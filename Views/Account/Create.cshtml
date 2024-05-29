@@ -1,0 +1,51 @@
+﻿@model UserModel
+<div class="authentication-theme auth-style_1">
+    <div class="row">
+        <div class="col-12 logo-section">
+            <a class="logo">
+                <img src="~/assets/images/logo.svg" alt="logo" />
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5 col-md-7 col-sm-9 col-11 mx-auto">
+            <div class="grid">
+                <div class="grid-body">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-8 col-sm-9 col-12 mx-auto form-wrapper">
+                            <form asp-action="Create" enctype="multipart/form-data">
+                                <div asp-validation-summary="All" class="text-danger"></div>
+                                <div class="form-group input-rounded">
+                                    <input asp-for="UserName" type="text" class="form-control" placeholder="Имя пользователя" required />
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group input-rounded">
+                                    <input asp-for="Email" type="text" class="form-control" placeholder="Почта" required />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                                <div class="form-group custom-file">
+                                        <input type="file" asp-for="UserPhoto" class="custom-file" required />
+                                </div>
+                                <div class="form-group input-rounded">
+                                    <input asp-for="Password" class="form-control" type="password" required />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="form-group input-rounded">
+                                    <button type="submit" class="btn btn-primary btn-block"> Регистрация </button>
+                                </div>
+                                
+                            </form>
+                            <div class="signup-link">
+                                <p>Есть аккаунт?</p>
+                                <a asp-controller="Account" asp-action="Login">Вход</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="auth_footer">
+        <p class="text-muted text-center">© Label Inc 2019</p>
+    </div>
+</div>

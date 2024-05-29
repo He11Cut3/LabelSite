@@ -1,0 +1,51 @@
+﻿@model IEnumerable<dynamic>
+
+
+<div class="content-viewport">
+    <h2>@ViewData["Title"]</h2>
+    <canvas id="salesChart" width="400" height="200"></canvas>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('salesChart').getContext('2d');
+        var salesData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
+
+        // Создаем уникальный список меток месяцев
+        var labels = [...new Set(salesData.map(s => s.Year + '-' + ('0' + s.Month).slice(-2)))];
+
+        // Создаем данные для каждого пользователя
+        var users = [...new Set(salesData.map(s => s.UserName))];
+        var datasets = users.map(user => {
+            var userSalesData = salesData.filter(s => s.UserName === user);
+            var data = labels.map(label => {
+                var monthData = userSalesData.find(s => s.Year + '-' + ('0' + s.Month).slice(-2) === label);
+                return monthData ? monthData.TotalSales : 0;
+            });
+            var color = '#' + Math.floor(Math.random() * 16777215).toString(16); // Генерируем случайный цвет для каждого пользователя
+            return {
+                label: user,
+                data: data,
+                borderColor: color,
+                backgroundColor: color,
+                borderWidth: 1
+            };
+        });
+
+        var salesChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: datasets
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+}

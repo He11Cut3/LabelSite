@@ -1,0 +1,60 @@
+﻿@model UserModel
+
+@if(User.Identity.IsAuthenticated)
+{
+
+    <div class="sidebar">
+        <div class="user-profile">
+            <div class="display-avatar animated-avatar">
+                <img class="profile-img img-lg rounded-circle" src="data:image/jpeg;base64,@Convert.ToBase64String(Model.UserPhoto)" alt="profile image">
+            </div>
+            <div class="info-wrapper">
+                <p class="user-name"></p>
+                <a asp-controller="Account" asp-action="logout" class="display-income">@Model.UserName</a>
+            </div>
+        </div>
+        <ul class="navigation-menu">
+            <li class="nav-category-divider">Меню</li>
+            <li>
+                <a asp-controller="Home" asp-action="Index">
+                    <span class="link-title">Главная страницы</span>
+                    <i class="mdi mdi-gauge link-icon"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#sample-pages" data-toggle="collapse">
+                    <span class="link-title">Продажи</span>
+                    <i class="mdi mdi-flask link-icon"></i>
+                </a>
+                <ul class="collapse navigation-submenu" id="sample-pages">
+                    <li>
+                        <a asp-controller="Sales" asp-action="Create">Создать</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Sales" asp-action="Index">Просмотр</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#ui-elements" data-toggle="collapse">
+                    <span class="link-title">Товар</span>
+                    <i class="mdi mdi-bullseye link-icon"></i>
+                </a>
+                <ul class="collapse navigation-submenu" id="ui-elements">
+                    <li>
+                        <a asp-controller="Product" asp-action="Create">Создать</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Product" asp-action="Index">Просмотр</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a asp-controller="Home" asp-action="GenerateReport">
+                    <span class="link-title">Сгенерировать отчёт</span>
+                    <i class="mdi mdi-gauge link-icon"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+}

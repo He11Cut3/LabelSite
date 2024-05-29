@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    @await Html.PartialAsync("MetaTagPartial")
+    
+    @await Html.PartialAsync("CssPartial")
+</head>
+<body>
+    
+    @if (User.Identity.IsAuthenticated)
+        {
+    <nav class="t-header">
+        <div class="t-header-brand-wrapper">
+            <a href="index.html">
+                <img class="logo" src="~/assets/images/logo.svg" alt="">
+                <img class="logo-mini" src="~/assets/images/logo_mini.svg" alt="">
+            </a>
+        </div>
+    </nav>
+        
+
+    <div class="page-body">
+
+        
+            @await Html.PartialAsync("HeaderPartial")
+        <!-- partial -->
+        <div class="page-content-wrapper">
+                <div class="content-viewport">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        @RenderBody()
+    }
+
+   
+
+
+    
+    @await Html.PartialAsync("ScriptPartial")
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

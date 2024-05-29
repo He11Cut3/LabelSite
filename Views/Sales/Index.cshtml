@@ -1,0 +1,50 @@
+﻿@model IEnumerable<LabelSite.Models.SalesData>
+
+<div class="content-viewport">
+    <p class="grid-header">Список продаж</p>
+    <div class="item-wrapper">
+        <table class="table info-table">
+            <thead>
+                <tr>
+                    <th>Дата продажи</th>
+                    <th>Сумма</th>
+                    <th>Пользователь</th>
+                    <th>Кол-во</th>
+                    <th>Необходимый минимум</th>
+                    <th>Процент от продажи</th>
+                    <th>Начало месяца</th>
+                    <th>Конец месяца</th>
+                    <th>Продукт</th>
+                    <th>Действия</th> <!-- Новый столбец для кнопки "Редактировать" -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var sale in Model)
+                {
+                    <tr>
+                        <td>@sale.SaleDate.ToString("yyyy-MM-dd")</td>
+                        <td>@sale.Amount</td>
+                        <td>@sale.User?.UserName</td>
+                        <td>@sale.SalesCount</td>
+                        <td>@sale.SalesGoal</td>
+                        <td>@sale.SalesPercentage</td>
+                        <td>@sale.MonthStart.ToString("yyyy-MM-dd")</td>
+                        <td>@sale.MonthEnd.ToString("yyyy-MM-dd")</td>
+                        <td>
+                            <ul>
+                                @foreach (var salesProduct in sale.SalesProducts)
+                                {
+                                    <li>@salesProduct.Product.ProductName (Кол-во: @salesProduct.Quantity)</li>
+                                }
+                            </ul>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Sales", new { id = sale.SalesDataId })" class="btn btn-primary">Редактировать</a>
+                            <a href="@Url.Action("Delete", "Sales", new { id = sale.SalesDataId })" class="btn btn-primary">Удалить</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

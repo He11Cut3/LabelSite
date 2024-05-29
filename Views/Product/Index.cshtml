@@ -1,0 +1,29 @@
+﻿@model IEnumerable<LabelSite.Models.Product>
+
+<div class="content-viewport">
+    <p class="grid-header">Товар</p>
+    <div class="item-wrapper">
+        <table class="table info-table">
+            <thead>
+                <tr>
+                    <th>Наименование</th>
+                    <th>Стоимость за ед. товара</th>
+                    <th>Действие</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var sale in Model)
+                {
+                    <tr>
+                        <td>@sale.ProductName</td>
+                        <td>@sale.Price</td>
+                        <td>
+                            <a href="@Url.Action("Delete", "Product", new { id = sale.ProductId })" class="btn btn-primary">Удалить</a>
+                        </td>
+                    </tr>
+                
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
