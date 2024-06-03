@@ -140,6 +140,9 @@
           }
         }
       },
+      "HighCharts/1.0.0": {
+        "type": "package"
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -3246,6 +3249,33 @@
         "lib/netstandard1.0/ExcelNumberFormat.xml",
         "lib/netstandard2.0/ExcelNumberFormat.dll",
         "lib/netstandard2.0/ExcelNumberFormat.xml"
+      ]
+    },
+    "HighCharts/1.0.0": {
+      "sha512": "GPTgp1UZAHeEvZInliPgLawxSmVxOdVc8NKl+rjOt5JjcFHvDtqljdUCTwcTH0JuRp2glXfV8Sfed6of8pFZcQ==",
+      "type": "package",
+      "path": "highcharts/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "adapters/mootools-adapter.js",
+        "adapters/mootools-adapter.src.js",
+        "adapters/prototype-adapter.js",
+        "adapters/prototype-adapter.src.js",
+        "highcharts-more.js",
+        "highcharts.1.0.0.nupkg.sha512",
+        "highcharts.js",
+        "highcharts.nuspec",
+        "highcharts.src.js",
+        "modules/canvas-tools.js",
+        "modules/canvas-tools.src.js",
+        "modules/exporting.js",
+        "modules/exporting.src.js",
+        "themes/dark-blue.js",
+        "themes/dark-green.js",
+        "themes/gray.js",
+        "themes/grid.js",
+        "themes/skies.js"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -9276,6 +9306,7 @@
     "net8.0": [
       "ClosedXML >= 0.102.2",
       "EPPlus >= 7.1.3",
+      "HighCharts >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.5",
       "Microsoft.EntityFrameworkCore >= 8.0.5",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.5",
@@ -9289,11 +9320,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kek13\\OneDrive\\Рабочий стол\\LabelSite\\LabelSite.csproj",
+      "projectUniqueName": "C:\\Users\\kek13\\OneDrive\\Рабочий стол\\01\\Git\\LabelSite\\LabelSite\\LabelSite.csproj",
       "projectName": "LabelSite",
-      "projectPath": "C:\\Users\\kek13\\OneDrive\\Рабочий стол\\LabelSite\\LabelSite.csproj",
+      "projectPath": "C:\\Users\\kek13\\OneDrive\\Рабочий стол\\01\\Git\\LabelSite\\LabelSite\\LabelSite.csproj",
       "packagesPath": "C:\\Users\\kek13\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kek13\\OneDrive\\Рабочий стол\\LabelSite\\obj\\",
+      "outputPath": "C:\\Users\\kek13\\OneDrive\\Рабочий стол\\01\\Git\\LabelSite\\LabelSite\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kek13\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9329,6 +9360,10 @@
           "EPPlus": {
             "target": "Package",
             "version": "[7.1.3, )"
+          },
+          "HighCharts": {
+            "target": "Package",
+            "version": "[1.0.0, )"
           },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",

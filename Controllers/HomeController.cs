@@ -23,48 +23,61 @@ namespace LabelSite.Controllers
         }
 
         [Authorize]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(DateTime? startDate, List<string> users, bool reset = false)
         {
-            if (User.IsInRole("Admin"))
-            {
-                var salesData = await _context.SalesDatas
-                                         .Include(sd => sd.User)
-                                         .GroupBy(sd => new { sd.User.UserName, sd.SaleDate.Year, sd.SaleDate.Month })
-                                         .Select(g => new
-                                         {
-                                             UserName = g.Key.UserName,
-                                             Year = g.Key.Year,
-                                             Month = g.Key.Month,
-                                             TotalSales = g.Sum(sd => sd.Amount)
-                                         })
-                                         .OrderBy(g => g.Year)
-                                         .ThenBy(g => g.Month)
-                                         .ToListAsync();
+            // Проверка роли пользователя
+            var currentUser = await _userManager.GetUserAsync(User);
+            var isAdmin = await _userManager.IsInRoleAsync(currentUser, "Admin");
 
-                return View(salesData);
-            }
-            else
+            // Если пользователь не администратор, установим параметр users на его собственный ID
+            if (!isAdmin)
             {
-                var user = await _userManager.GetUserAsync(User); // Получение текущего пользователя
-                var salesData = await _context.SalesDatas
-                    .Include(sd => sd.User)
-                    .Where(sd => sd.UserId == user.Id) // Ограничение данных только до продаж текущего пользователя
-                    .GroupBy(sd => new { sd.User.UserName, sd.SaleDate.Year, sd.SaleDate.Month })
-                    .Select(g => new
-                    {
-                        UserName = g.Key.UserName,
-                        Year = g.Key.Year,
-                        Month = g.Key.Month,
-                        TotalSales = g.Sum(sd => sd.Amount)
-                    })
-                    .OrderBy(g => g.Year)
-                    .ThenBy(g => g.Month)
-                    .ToListAsync();
-                return View(salesData);
+                users = new List<string> { currentUser.Id };
             }
-               
+
+            // Обработка сброса параметров
+            if (reset)
+            {
+                startDate = null;
+                users = isAdmin ? null : new List<string> { currentUser.Id };
+            }
+
+            var allUsers = await _userManager.Users.ToListAsync();
+            ViewBag.Users = allUsers;
+            ViewBag.StartDate = startDate;
+
+            IQueryable<SalesData> query = _context.SalesDatas.Include(sd => sd.User);
+
+            if (startDate.HasValue)
+            {
+                var startMonth = new DateTime(startDate.Value.Year, startDate.Value.Month, 1);
+                var endMonth = startMonth.AddMonths(1).AddDays(0);
+                query = query.Where(sd => sd.SaleDate >= startMonth && sd.SaleDate <= endMonth);
+            }
+
+            if (users != null && users.Any() && !users.Contains("all"))
+            {
+                query = query.Where(sd => users.Contains(sd.UserId));
+            }
+
+            var salesData = await query
+                .GroupBy(sd => new { sd.User.UserName, sd.SaleDate.Year, sd.SaleDate.Month, sd.SaleDate.Day })
+                .Select(g => new
+                {
+                    UserName = g.Key.UserName,
+                    Year = g.Key.Year,
+                    Month = g.Key.Month,
+                    Day = g.Key.Day,
+                    TotalSales = g.Sum(sd => sd.Amount)
+                })
+                .OrderBy(g => g.Year)
+                .ThenBy(g => g.Month)
+                .ThenBy(g => g.Day)
+                .ToListAsync();
+
+            return View(salesData);
         }
-        [Authorize]
+
         [Authorize]
         public async Task<IActionResult> GenerateReport()
         {

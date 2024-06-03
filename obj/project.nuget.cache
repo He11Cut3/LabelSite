@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "c/w7YWZckwhx2uFjB5R+SE5GjNA8ZYo+blo3JlhwdUK0wQDihSG512x0zlA3MN5mmfC9gZJNIJ4Ur0MYN50TYg==",
+  "dgSpecHash": "waTcVobFjAADVt6Gn+8VwX13nHnmK1go+eDCQcOE82AgIzHS88OGlt6C0n8zqlJcFZAojZvagWHdgxlMHsTw4g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kek13\\OneDrive\\Рабочий стол\\LabelSite\\LabelSite.csproj",
+  "projectFilePath": "C:\\Users\\kek13\\OneDrive\\Рабочий стол\\01\\Git\\LabelSite\\LabelSite\\LabelSite.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kek13\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\kek13\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
@@ -12,6 +12,7 @@
     "C:\\Users\\kek13\\.nuget\\packages\\epplus.interfaces\\6.1.1\\epplus.interfaces.6.1.1.nupkg.sha512",
     "C:\\Users\\kek13\\.nuget\\packages\\epplus.system.drawing\\6.1.1\\epplus.system.drawing.6.1.1.nupkg.sha512",
     "C:\\Users\\kek13\\.nuget\\packages\\excelnumberformat\\1.1.0\\excelnumberformat.1.1.0.nupkg.sha512",
+    "C:\\Users\\kek13\\.nuget\\packages\\highcharts\\1.0.0\\highcharts.1.0.0.nupkg.sha512",
     "C:\\Users\\kek13\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\kek13\\.nuget\\packages\\irony.netcore\\1.0.11\\irony.netcore.1.0.11.nupkg.sha512",
     "C:\\Users\\kek13\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.5\\microsoft.aspnetcore.cryptography.internal.8.0.5.nupkg.sha512",

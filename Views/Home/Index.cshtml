@@ -1,50 +1,136 @@
 ﻿@model IEnumerable<dynamic>
 
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    <div class="form-group">
+        <label for="startDate">Выберите месяц и год:</label>
+        <input type="month" id="startDate" name="startDate" class="form-control" />
+    </div>
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="form-group">
+            <label for="users">Пользователи:</label>
+            <select id="users" name="users" class="form-control" multiple>
+                <option value="all">Все пользователи</option>
+                @foreach (var user in ViewBag.Users)
+                {
+                    <option value="@user.Id">@user.UserName</option>
+                }
+            </select>
+        </div>
+    }
+    <button type="submit" class="btn btn-primary">Применить фильтры</button>
+    <button type="submit" class="btn btn-secondary" name="reset" value="true">Сбросить фильтры</button>
+    <p>&nbsp;</p>
+}
 
 <div class="content-viewport">
-    <h2>@ViewData["Title"]</h2>
-    <canvas id="salesChart" width="400" height="200"></canvas>
+    <div id="salesChart" style="width:100%; height:400px;"></div>
 </div>
 
 @section Scripts {
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
     <script>
-        var ctx = document.getElementById('salesChart').getContext('2d');
-        var salesData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
+        document.addEventListener('DOMContentLoaded', function () {
+            var salesData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
+            var startDate = '@ViewBag.StartDate';
 
-        // Создаем уникальный список меток месяцев
-        var labels = [...new Set(salesData.map(s => s.Year + '-' + ('0' + s.Month).slice(-2)))];
+            // Определяем, были ли применены фильтры
+            var isFiltered = startDate !== '';
 
-        // Создаем данные для каждого пользователя
-        var users = [...new Set(salesData.map(s => s.UserName))];
-        var datasets = users.map(user => {
-            var userSalesData = salesData.filter(s => s.UserName === user);
-            var data = labels.map(label => {
-                var monthData = userSalesData.find(s => s.Year + '-' + ('0' + s.Month).slice(-2) === label);
-                return monthData ? monthData.TotalSales : 0;
-            });
-            var color = '#' + Math.floor(Math.random() * 16777215).toString(16); // Генерируем случайный цвет для каждого пользователя
-            return {
-                label: user,
-                data: data,
-                borderColor: color,
-                backgroundColor: color,
-                borderWidth: 1
-            };
-        });
+            if (isFiltered) {
+                // Если фильтр по месяцу применен, создаем метки дней выбранного месяца
+                var labels = [...new Set(salesData.map(s => s.Day))].sort((a, b) => a - b);
 
-        var salesChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: datasets
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                var users = [...new Set(salesData.map(s => s.UserName))];
+                var series = users.map(user => {
+                    var userSalesData = salesData.filter(s => s.UserName === user);
+                    var data = labels.map(day => {
+                        var dayData = userSalesData.find(s => s.Day == day);
+                        return dayData ? dayData.TotalSales : 0;
+                    });
+                    return {
+                        name: user,
+                        data: data
+                    };
+                });
+
+                Highcharts.chart('salesChart', {
+                    chart: {
+                        type: 'line'
+                    },
+                    title: {
+                        text: 'Продажи по дням за выбранный месяц'
+                    },
+                    xAxis: {
+                        categories: labels.map(day => `День ${day}`),
+                        title: {
+                            text: 'День месяца'
+                        }
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Сумма продаж'
+                        },
+                        min: 0
+                    },
+                    series: series,
+                    tooltip: {
+                        shared: true,
+                        crosshairs: true,
+                        formatter: function () {
+                            return `${this.points[0].key}:<br>` +
+                                this.points.map(point => `<b>${point.series.name}:</b> ${point.y}`).join('<br>');
+                        }
                     }
-                }
+                });
+            } else {
+                // Если фильтр по месяцу не применен, создаем метки месяцев и годов
+                var labels = [...new Set(salesData.map(s => `${s.Year}-${('0' + s.Month).slice(-2)}`))].sort();
+
+                var users = [...new Set(salesData.map(s => s.UserName))];
+                var series = users.map(user => {
+                    var userSalesData = salesData.filter(s => s.UserName === user);
+                    var data = labels.map(label => {
+                        var [year, month] = label.split('-');
+                        var monthData = userSalesData.find(s => s.Year == year && ('0' + s.Month).slice(-2) == month);
+                        return monthData ? monthData.TotalSales : 0;
+                    });
+                    return {
+                        name: user,
+                        data: data
+                    };
+                });
+
+                Highcharts.chart('salesChart', {
+                    chart: {
+                        type: 'line'
+                    },
+                    title: {
+                        text: 'Продажи по месяцам за все время'
+                    },
+                    xAxis: {
+                        categories: labels,
+                        title: {
+                            text: 'Месяц'
+                        }
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Сумма продаж'
+                        },
+                        min: 0
+                    },
+                    series: series,
+                    tooltip: {
+                        shared: true,
+                        crosshairs: true,
+                        formatter: function () {
+                            return `${this.points[0].key}:<br>` +
+                                this.points.map(point => `<b>${point.series.name}:</b> ${point.y}`).join('<br>');
+                        }
+                    }
+                });
             }
         });
     </script>

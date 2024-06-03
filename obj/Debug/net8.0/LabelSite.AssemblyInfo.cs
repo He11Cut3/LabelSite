@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LabelSite")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26b18f5154a235618fd86835c7ec3ec2f424d32e")]
 [assembly: System.Reflection.AssemblyProductAttribute("LabelSite")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LabelSite")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

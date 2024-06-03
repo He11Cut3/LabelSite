@@ -9,91 +9,91 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LabelSite
 build_property.RootNamespace = LabelSite
-build_property.ProjectDir = C:\Users\kek13\OneDrive\Рабочий стол\LabelSite\
+build_property.ProjectDir = C:\Users\kek13\OneDrive\Рабочий стол\01\Git\LabelSite\LabelSite\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\kek13\OneDrive\Рабочий стол\LabelSite
+build_property.MSBuildProjectDirectory = C:\Users\kek13\OneDrive\Рабочий стол\01\Git\LabelSite\LabelSite
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Account/Create.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Account/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Account/Login.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Home/Index.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Home/Privacy.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Product/Create.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Product/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Product/Edit.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Product/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Product/Index.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Sales/Create.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Sales/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Sales/Edit.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Sales/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Sales/Index.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Sales/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Shared/Components/User/Default.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Shared/Components/User/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcVXNlclxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Shared/CssPartial.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Shared/CssPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENzc1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Shared/Error.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Shared/HeaderPartial.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Shared/HeaderPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEhlYWRlclBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Shared/MetaTagPartial.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Shared/MetaTagPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1ldGFUYWdQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Shared/ScriptPartial.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Shared/ScriptPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFNjcmlwdFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/_ViewImports.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/_ViewStart.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kek13/OneDrive/Рабочий стол/LabelSite/Views/Shared/_Layout.cshtml]
+[C:/Users/kek13/OneDrive/Рабочий стол/01/Git/LabelSite/LabelSite/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ckp7znxo7z
